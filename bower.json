@@ -7,7 +7,12 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.6"
+    "bootstrap-sass": "3.3.6",
+    "jquery": "^3.1.0",
+    "gsap": "^1.18.5",
+    "slick-carousel": "^1.6.0",
+    "html2canvas": "^0.4.1",
+    "detectizr": "^2.2.0"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -30,6 +35,17 @@
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "slick-carousel": {
+      "main": [
+        "./slick/slick.js",
+        "./slick/slick.scss",
+        "./slick/ajax-loader.gif",
+        "./slick/fonts/slick.eot",
+        "./slick/fonts/slick.svg",
+        "./slick/fonts/slick.ttf",
+        "./slick/fonts/slick.woff"
       ]
     }
   }

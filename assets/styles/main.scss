@@ -1,19 +1,28 @@
-@import "common/variables";
+$icon-font-path: '../fonts/';
 
-// Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/slick-carousel/slick/slick.scss";
 // endbower
 
+@import "common/variables";
 @import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
-@import "components/wp-classes";
+@import "common/webfonts";
+@import "common/section";
+
+
 @import "layouts/header";
-@import "layouts/sidebar";
 @import "layouts/footer";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/tinymce";
+
+@import "layouts/index";
+@import "layouts/start";
+@import "layouts/gallery";
+@import "layouts/trailer";
+@import "layouts/award";
+@import "layouts/game";
+@import "layouts/form";
+
+
+
+
+

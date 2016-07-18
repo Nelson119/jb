@@ -1,0 +1,147 @@
+.seconds{
+	position: absolute;
+	top: 396px;
+	left: 106px;
+	width: 20px;
+	height: 35px;
+	background: url(../images/game/0.svg) 0 0/cover;
+	z-index: 20;
+	@media screen and (max-width: 768px) { 
+	    left: vwxsl(53);
+	    top: vwxsl(210);
+	    transform: scale(0.6);
+	}
+
+	&:before, &:after{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		content:'';
+	}
+	&:before{
+		left: -20px;
+		background: url(../images/game/0.svg) 0 0/cover;
+	}
+	&:after{
+		right: -20px;
+		background: url(../images/game/0.svg) 0 0/cover;
+	}
+	&.c1{
+		&:after{
+			background-image: url(../images/game/1.svg);
+		    background-position: 30px 0;
+		}
+	}
+	&.c2{
+		&:after{
+			background-image: url(../images/game/2.svg);
+		}
+	}
+	&.c3{
+		&:after{
+			background-image: url(../images/game/3.svg);
+		}
+	}
+	&.c4{
+		&:after{
+			background-image: url(../images/game/4.svg);
+		}
+	}
+	&.c5{
+		&:after{
+			background-image: url(../images/game/5.svg);
+		}
+	}
+	&.c6{
+		&:after{
+			background-image: url(../images/game/6.svg);
+		}
+	}
+	&.c7{
+		&:after{
+			background-image: url(../images/game/7.svg);
+		}
+	}
+	&.c8{
+		&:after{
+			background-image: url(../images/game/8.svg);
+		}
+	}
+	&.c9{
+		&:after{
+			background-image: url(../images/game/9.svg);
+		}
+	}
+	&.c10{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+	}
+	&.c11{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/1.svg);
+		    background-position: 30px 0;
+		}
+	}
+	&.c12{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/2.svg);
+		}
+	}
+	&.c13{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/3.svg);
+		}
+	}
+	&.c14{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/4.svg);
+		}
+	}
+	&.c15{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/5.svg);
+		}
+	}
+	&.c16{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/6.svg);
+		}
+	}
+	&.c17{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/7.svg);
+		}
+	}
+	&.c18{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/8.svg);
+		}
+	}
+	&.c19{
+		background-image: url(../images/game/1.svg);
+	    background-position: 30px 0;
+		&:after{
+			background-image: url(../images/game/9.svg);
+		}
+	}
+	&.c20{
+		background-image: url(../images/game/2.svg);
+	}
+}

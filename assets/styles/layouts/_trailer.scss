@@ -1,0 +1,30 @@
+main #trailer {
+	position: relative;
+	z-index:1;
+	height: 690px;
+	background: url(../images/trailer/bg.png);
+	@media screen and (max-width: 768px) { 
+		height: vwxs(270);
+		background: url(../images/trailer/bg.png) 0 0/100% auto no-repeat;
+	}
+
+	h3{
+		line-height: 1.5em;
+		height: auto;
+		display: inline-block;
+		margin: 0 0 30px;
+		border-bottom: 1px solid #fff;
+	}
+	iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 127px 0 0 60px;
+		display: inline-block;
+		@media screen and (max-width: 768px) { 
+			margin: vwxs(42) 0 0 vwxs(20);
+			width: vwxs(280);
+			height: vwxs(136);
+		}
+	}
+}

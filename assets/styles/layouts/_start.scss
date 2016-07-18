@@ -1,0 +1,58 @@
+main #start {
+	position: relative;
+	z-index:1;
+	height: 533px;
+	background: url(../images/start/bg.png);
+	@media screen and (max-width: 768px) {		
+		background-position: -123vw -10vw;
+		background-size: 240vw auto;
+		height: vwxs(330);
+	}
+
+	.text-content{
+		padding-top: 106px;
+		padding-left: 372px;
+		@media screen and (max-width: 768px) {	
+			padding-top: vwxs(30);
+			padding-left: vwxs(10);
+		}
+	}
+
+	h3{
+		color: $font-default-hover-color;
+		margin: 0;
+		width: 280px;
+		padding-bottom: 5px;
+		border-bottom: #fff 1px solid;
+		text-indent: -5px;
+		direction: rtl;
+		@media screen and (max-width: 768px) {	
+			border: 0;
+		}
+	}
+
+	p{
+		margin-top: 15px;
+		margin-left: 80px;
+		line-height: 1.8em;
+		@media screen and (max-width: 768px) {	
+			width: vwxs(300);
+			margin-left: 0;
+		}
+	}
+
+	button{
+		margin-left: 80px;
+		margin-top: 10px;
+		@media screen and (max-width: 768px) {	
+			margin: vwxs(10) 0 0 vwxs(40);
+		}
+	}
+
+	h3,p,button{
+		font-weight: 700;
+	}
+	p,button{
+		letter-spacing: 0;
+	}
+}

@@ -1,7 +1,12 @@
 <?php
+  namespace Roots\Sage\Functions;
+
+  use Roots\Sage\Assets;
+
   error_reporting(E_ALL); // or E_STRICT
   ini_set("display_errors",1);
   ini_set("memory_limit","1024M");
+
 /**
  * Sage includes
  *
@@ -18,7 +23,8 @@ $sage_includes = [
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
-  'lib/customizer.php' // Theme customizer
+  'lib/customizer.php', // Theme customizer,
+  'lib/getpicture.php' // get picture api,
 ];
 
 foreach ($sage_includes as $file) {
@@ -55,3 +61,5 @@ function remove_thumbnail_dimensions( $html ) {                                 
 add_filter('show_admin_bar', '__return_false');
 
 remove_filter('template_redirect', 'redirect_canonical');
+
+

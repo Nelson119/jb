@@ -1,0 +1,32 @@
+main #award {
+	position: relative;
+	z-index:1;
+	min-height: 700px;
+	@media screen and (max-width: 768px) { 
+		min-height: vwxs(285);
+	}
+
+	background: url(../images/award/bg.png) no-repeat 663px 317px;
+	@media screen and (max-width: 768px) { 
+		background-position: vwxs(160) vwxs(132);
+		background-size: vwxs(133) auto;
+	}
+
+	h3{
+		line-height: 1.5em;
+		height: auto;
+		display: inline-block;
+		margin: 0 0 30px;
+		border-bottom: 1px solid #fff;
+	}
+	.list{
+		min-height: 400px;
+		@media screen and (max-width: 768px) { 
+			min-height: 0;
+		}
+	}
+	p.coming{
+		color: #a6a7a7;
+		font-weight: bold;
+	}
+}

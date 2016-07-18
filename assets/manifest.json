@@ -12,13 +12,10 @@
       ],
       "main": true
     },
-    "customizer.js": {
+    "index.js": {
       "files": [
-        "scripts/customizer.js"
+        "scripts/index.js"
       ]
-    },
-    "jquery.js": {
-      "bower": ["jquery"]
     }
   },
   "config": {

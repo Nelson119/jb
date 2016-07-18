@@ -7,3 +7,94 @@ $sidebar-sm-columns:    4;
 
 // Colors
 $brand-primary:         #27ae60;
+
+
+
+$browser-xs-viewport: 320; // Default
+$browser-xsl-viewport: 568; // Default
+$browser-sm-viewport: 768; // Default
+$browser-lg-viewport: 1366; // Default
+
+@function vwsm($pixels, $context: $browser-sm-viewport) {
+  @return #{$pixels/$context*100}vw;
+}
+
+@function vwxs($pixels, $context: $browser-xs-viewport) {
+  @return #{$pixels/$context*100}vw;
+}
+
+@function vwxsl($pixels, $context: $browser-xsl-viewport) {
+  @return #{$pixels/$context*100}vw;
+}
+
+@function vw($pixels, $context: $browser-lg-viewport) {
+  @return #{$pixels/$context*100}vw;
+}
+
+@mixin linear-gradient($direction, $color-stops) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+$font-default-color: #fff;
+$font-default-hover-color: #fbc02d;
+$default-background-color: #0f2349;
+$font-white-color: #fff;
+
+
+$main-font: 'Noto Sans TC';
+$main-font-fallback:'Lantinghei','Noto Sans TC', 'microsoft jhenghei', '微軟正黑體', 'Segoe UI', 'Arial', 'Verdana';
+$base-font-size: 13px;
+$base-font-size-sm: vwsm(13);
+$base-font-size-xs: vwxs(13);
+$base-font-size-num: 13;
+$base-font-size-sm: vwxs(10);
+
+@media screen and (max-width: 768px) {  
+  .text-right-xs{
+    text-align: right;
+  }
+  .text-center-xs{
+    text-align: center;
+  }
+  .text-left-xs{
+    text-align: left;
+  }
+}
+
+
+@for $i from 11 to 50 {
+  .fontsize-p-#{$i} {
+    @media screen and (min-width: 769px) {  
+      font-size: percentage($i / $base-font-size-num);
+    }
+  }
+}
+
+@for $i from 11 to 50 {
+  .fontsize-#{$i} {
+    font-size: vw($i);
+  }
+}
+
+@for $i from 11 to 50 {
+  @media screen and (max-width: 768px) {  
+    .fontsize-xs-#{$i} {
+      font-size: vwxs($i);
+    }
+  }
+  @media screen and (max-width: 768px) {  
+    .fontsize-xsl-#{$i} {
+      font-size: vwxsl($i);
+    }
+  }
+}
+
+
+.font-default{
+  font-family: $main-font, $main-font-fallback, cursive;
+}
+.fontsize-reset {
+  font-size: $base-font-size;
+}
