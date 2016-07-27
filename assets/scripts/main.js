@@ -30,6 +30,12 @@ var tlTick;
 
 // var method = app.global.method = debug ? 'get' : 'post';
 
+//來源是分享圖片 跳轉至一般入口
+if(/^(.*)([&]picture[=].+).*$/ig . test(location.href)){
+  var to = location.href.replace(/^(.*)([&]picture[=].+).*$/ig,'$1');
+  location.href = to;
+}
+
 //停用錨點自動跳換位置
 if (location.hash) {
   setTimeout(function() {
@@ -42,7 +48,8 @@ if (location.hash) {
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1809323572634015',
+    // appId      : '1809323572634015',
+    appId      : (/localhost/.test(location.href) ? '1813338188899220' : '1809323572634015'), //test
     xfbml      : true,
     version    : 'v2.6'
   });
@@ -55,6 +62,9 @@ window.fbAsyncInit = function() {
       authResponse = r.authResponse
       if(r.status === 'connected'){
         getMe(function(){});
+      }
+      if(/[?&]code[=]/ig.test(location.search)){
+        loginCallback();
       }
     });
 
@@ -74,7 +84,7 @@ window.fbAsyncInit = function() {
       });
 
       $.ajax({
-        url: '/?api=form',
+        url: $(this).attr('action'),
         method: 'post',
         data: postObject,
         success: function(r){
@@ -201,13 +211,13 @@ window.fbAsyncInit = function() {
     $('html').removeClass('loading');
 
 
-    $('a button').filter(function(){
+    $('a, button').filter(function(){
       return $(this).hasAttr('data-ga-title');
     }).on('click', function(){
       ga('send', 'event', {
-        eventCategory: 'event',
         eventAction: 'click',
-        eventLabel: $(this).attr('data-ga-title') + ($('html.mobile').length? '-mobile' : '-desktop')
+        eventCategory: $(this).attr('data-ga-group'),
+        eventLabel: $(this).attr('data-ga-title') + ($('html').hasClass('mobile')? '-mobile' : '-desktop')
       });
 
     });
@@ -271,6 +281,8 @@ window.fbAsyncInit = function() {
           break;
       }
     });
+
+
   });
 };
 
@@ -370,7 +382,6 @@ function ticking(tl){
 
 function success(){
 
-  goToStep('success');
 
   var results = {
     super : {
@@ -400,19 +411,19 @@ function success(){
     final = results.general;
   }
 
-  var picture = '?api=getpicture&picture=' + encodeURIComponent(me.picture) + '&name=' + encodeURIComponent(me.first_name) + '&metal=' + final.metal;
+  var picture = '?api=getpicture&fbid=' + encodeURIComponent(me.id) + '&name=' + encodeURIComponent(me.first_name) + '&metal=' + final.metal;
 
   var container = $('#game .success figure').css('background-image', 'url('+picture+')');
+
+  var img = new Image();
+  img.onload = function(){
+    goToStep('success');
+  };
+  img.src = picture;
+
   // $('.name', container).html( final.name + ' ' + me.first_name);
 
   // console.log(me);
-
-  FB.ui({
-    display: $('html').hasClass('mobile') ? 'touch' : 'iframe', 
-    method: 'share',
-    href: 'http://event.ck101.com/JasonBourne/?utm_source=facebook&utm_medium=fbshare&utm_campaign=jasonbourne&picture=' + encodeURIComponent('http://event.ck101.com/JasonBourne/' + picture),
-    caption: '電影【神鬼認證:傑森包恩】尋找傑森包恩｜電影包場活動'
-  });
   // FB.ui({
   //   display: $('html').hasClass('mobile') ? 'touch' : 'iframe', 
   //   method: 'feed',
@@ -426,7 +437,14 @@ function success(){
   //   }
   // });
 
-  $('#apply').one('click', function(){
+  $('#apply').unbind('click').one('click', function(){
+
+    FB.ui({
+      display: $('html').hasClass('mobile') ? 'touch' : 'iframe', 
+      method: 'share',
+      href: 'http://event.ck101.com/JasonBourne/?utm_source=facebook&utm_medium=fbshare&utm_campaign=jasonbourne&picture=' + encodeURIComponent('http://event.ck101.com/JasonBourne/' + picture),
+      caption: '電影【神鬼認證:傑森包恩】尋找傑森包恩｜電影包場活動'
+    });
     goToForm();
   });
 
@@ -434,20 +452,26 @@ function success(){
 
 function failed(){
 
-  goToStep('failed');
   // var container = $('#game .failed');
   // $('.name', container).html( 'Super ' + me.first_name);
 
-  var picture = '?api=getpicture&picture=' + encodeURIComponent(me.picture) + '&name=' + encodeURIComponent(me.first_name);
+  var picture = '?api=getpicture&fbid=' + encodeURIComponent(me.id) + '&name=' + encodeURIComponent(me.first_name);
 
   var container = $('#game .failed figure').css('background-image', 'url('+picture+')');
 
-  FB.ui({
-    display: $('html').hasClass('mobile') ? 'touch' : 'iframe', 
-    method: 'share',
-    href: 'http://event.ck101.com/JasonBourne/?utm_source=facebook&utm_medium=fbshare&utm_campaign=jasonbourne&picture=' + encodeURIComponent('http://event.ck101.com/JasonBourne/' + picture),
-    caption: '電影【神鬼認證:傑森包恩】尋找傑森包恩｜電影包場活動'
-  });
+
+  var img = new Image();
+  img.onload = function(){
+    goToStep('failed');
+  };
+  img.src = picture;
+
+  // FB.ui({
+  //   display: $('html').hasClass('mobile') ? 'touch' : 'iframe', 
+  //   method: 'share',
+  //   href: 'http://event.ck101.com/JasonBourne/?utm_source=facebook&utm_medium=fbshare&utm_campaign=jasonbourne&picture=' + encodeURIComponent('http://event.ck101.com/JasonBourne/' + picture),
+  //   caption: '電影【神鬼認證:傑森包恩】尋找傑森包恩｜電影包場活動'
+  // });
   // FB.ui({
   //   display: $('html').hasClass('mobile') ? 'touch' : 'iframe',
   //   method: 'feed',
@@ -477,7 +501,7 @@ function shuffle(tick){
     active.addClass('active');
     active.siblings().removeClass('active');
   }
-  tl.addPause(0.025, next);
+  tl.addPause(0.1, next);
   var num = 1;
   tl.play();
 
@@ -531,6 +555,14 @@ function getMe(){
   });
 }
 
+function loginCallback(){
+  if(loginStatus === 'connected'){
+    getMe();
+    goToStep('step1');
+    history.pushState('#game', document.title, '#game');
+  }
+}
+
 app.index = function(global){
   // console.log('index initialized');
 
@@ -563,12 +595,16 @@ app.start = function(global){
         break;
       default:
 
-        FB.login(function(r){
-          if(r.status === 'connected'){
-            getMe();
-            goToStep('step1');
-          }
-        }, {scope: 'email'});
+        if(/CriOS/.test(navigator.userAgent)){
+          var url = location.href.replace(location.hash, '');
+          location.href = 'https://www.facebook.com/dialog/oauth?client_id=1809323572634015&redirect_uri=' + url +'#login';
+        }else{
+          FB.login(function(r){
+            loginStatus = r.status;
+            loginCallback();
+          }, {scope: 'email'});
+
+        }
         break;
     }
   });

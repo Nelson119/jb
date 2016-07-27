@@ -46,6 +46,7 @@ header {
 			transition: opacity 0.5s ease-out 0s, height 0s ease-out 0.5s;
 			&:before{
 				margin-left: -100vw;
+				display: none!important;
 			} 
 
 			&.on{
@@ -59,15 +60,20 @@ header {
 			letter-spacing: 1px;
 
 			@media screen and (max-width: 768px) {
-				width: 100%;
+				width: 100vw;
 				display: block !important;
 				overflow: hidden;
-				height: calc((100vh - 50px) / 7);
+				height: calc((100vh - 50px) / 8);
 				line-height: 2em;
-				font-size: calc((100vh - 50px) / 14);
-				float: left;
+				font-size: calc((100vh - 50px) / 16);
+				// float: left;
 				text-align: center;
+
+				&+a{
+					// border-top:1px solid #fff;
+				}
 			}
+
 		}
 	}
 

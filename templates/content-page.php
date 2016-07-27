@@ -28,7 +28,7 @@ function theme_asset($file){
 					<span class="visible-lg visible-md visible-sm visible-xs">在眾多人群中，精準搜尋傑森包恩，</span>
 					<span class="visible-lg visible-md visible-sm visible-xs">任務完成者，可得到參加電影特映抽獎機會!</span>
 				</p>
-				<button class="fontsize-p-25 fontsize-xs-25" data-ga-title="開始搜尋">開始搜尋</button>
+				<button class="fontsize-p-25 fontsize-xs-25" data-ga-title="開始搜尋" data-ga-group="首頁說明" data-ga-title="開始搜尋">開始搜尋</button>
 			</aside>
 
 		</section>
@@ -62,10 +62,14 @@ function theme_asset($file){
 		<section id="award" class="text-center">
 			<h3 class="fontsize-p-32 fontsize-xs-20">名單公佈</h3>
 			<aside class="list vertical-middle">
-				<p class="coming fontsize-p-36 fontsize-xs-20">
+				<p class="coming fontsize-p-36 fontsize-xs-20 hide">
 					<span class="visible-lg visible-md visible-sm visible-xs">目前活動尚未結束</span>
 					<span class="visible-lg visible-md visible-sm visible-xs">coming soon....</span>
 				</p>
+				<span class="congrats fontsize-p-20">恭喜獲得電影包場入場票2張!!</span>
+				<aside class="fontsize-p-20">
+					<?php the_content();?>
+				</aside>
 			</aside>
 		</section>
 	</aside>
@@ -79,6 +83,12 @@ function theme_asset($file){
 			<h4>此次限時20秒的任務中，將關係到這次的特務評鑑!</h4>
 
 			<p>
+				<span class="visible-lg visible-md visible-sm visible-xs">
+					任務!!
+				</span>
+				<span class="visible-lg visible-md visible-sm visible-xs">
+					在眾多人群中，精準搜尋 傑森包恩!
+				</span>
 				<span class="visible-lg visible-md visible-sm visible-xs">
 					在3秒內精準找到目標，將晉升為<label class="red">超級特務</label>
 				</span>
@@ -95,7 +105,7 @@ function theme_asset($file){
 			</p>
 
 			<p>
-				<button class="go">開始搜尋</button>
+				<button class="go" data-ga-group="活動說明" data-ga-title="開始搜尋2">開始搜尋</button>
 			</p>
 		</aside>
 
@@ -128,11 +138,11 @@ function theme_asset($file){
 				<span class="name fontsize-p-28 fontsize-xsl-34">Super</span>
 			</figure>
 			<aside class="text-center btn">
-				<a class="restart vertical-middle fontsize-p-25 fontsize-xsl-18">
+				<a class="restart vertical-middle fontsize-p-25 fontsize-xsl-18" data-ga-group="任務成功" data-ga-title="再玩一次2">
 					<img src="<?php theme_asset('images/game/restart.png')?>">
 					再玩一次
 				</a>
-				<button id="apply" class="vertical-middle fontsize-p-25 fontsize-xsl-18">
+				<button id="apply" class="vertical-middle fontsize-p-25 fontsize-xsl-18" data-ga-group="任務成功" data-ga-title="拿票去">
 					拿票去
 					<img src="<?php theme_asset('images/game/tri.png')?>">
 					<img src="<?php theme_asset('images/game/tri.png')?>">
@@ -147,7 +157,7 @@ function theme_asset($file){
 				<span class="name fontsize-p-28 fontsize-xsl-34">Super</span>
 			</figure>
 			<aside class="text-center btn">
-				<button id="replay" class="vertical-middle fontsize-p-25 fontsize-xsl-18">
+				<button id="replay" class="vertical-middle fontsize-p-25 fontsize-xsl-18" data-ga-group="任務失敗" data-ga-title="再玩一次">
 					再玩一次
 					<img src="<?php theme_asset('images/game/tri.png')?>">
 					<img src="<?php theme_asset('images/game/tri.png')?>">
@@ -159,7 +169,7 @@ function theme_asset($file){
 	</section>
 
 
-	<form id="form" method="async" action="?pagename=addticket">
+	<form id="form" method="async" action="?api=form">
 		<section class="container">
 			<h3 class="fontsize-p-30 fontsize-xsl-22 text-center">現在就加入菁英特務的募集!</h3>
 			<p class="fontsize-p-18">
@@ -190,7 +200,7 @@ function theme_asset($file){
 				<span>7/30(六)14:00神鬼認證：傑森包恩電影入場資格(一人中獎兩人同行)，得獎名單將於7/22(五)中午12:00公佈於此活動頁下方『名單公佈』連結。</span>
 			</p>
 			<aside class="text-center">
-				<button id="submit" disabled="disabled" class="vertical-middle fontsize-p-25 fontsize-xsl-18">
+				<button data-ga-group="填寫神鬼認證資料" data-ga-title="確定報名" id="submit" disabled="disabled" class="vertical-middle fontsize-p-25 fontsize-xsl-18">
 					確定報名
 				</button>
 			</aside>

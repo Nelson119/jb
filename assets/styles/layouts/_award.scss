@@ -29,4 +29,17 @@ main #award {
 		color: #a6a7a7;
 		font-weight: bold;
 	}
+	.congrats{
+		background:url(../images/award/congrats.png) 0 0/100% auto no-repeat;
+		color: $font-default-hover-color;
+		letter-spacing: 0;
+		padding: 0 15px;
+	}
+	aside{
+		margin-top: 30px;
+		ul{
+			padding:0;
+			list-style: none;
+		}
+	}
 }

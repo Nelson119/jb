@@ -15,6 +15,7 @@
 		@media screen and (max-width: 768px) { 
 			line-height: 1;
 			letter-spacing: 1px;
+			margin-top: 50px;
 		}
 		h4,p,button{
 			font-weight: bold;
@@ -35,6 +36,13 @@
 			color: $font-default-hover-color;
 			font-size: inherit;
 		}
+
+		@media screen and (max-width: 768px) { 
+			>*:last-child{
+				margin-bottom: 100px;
+			}
+		}
+
 	}
 	.step2{
 		width: 0;
@@ -193,6 +201,11 @@
 			}
 
 		}
+		@media screen and (max-width: 768px) { 
+			>*:last-child{
+				margin-bottom: 100px;
+			}
+		}
 	}
 
 	.success{		
@@ -248,14 +261,14 @@ html.game{
 				height: 100%;
 				z-index: 51;
 				content: '';
-				background: url(../images/game/landscape-please.jpg) center center no-repeat;
+				background: url(../images/game/landscape-please.jpg) center center/cover no-repeat;
 			}
 		}
 	}
 	#game {
 		z-index:50;
 		transition: z-index 0s linear 0s;
-		margin-top: 70px;
+		margin-top: 10px;
 		height: calc(100vh - 50px);
 		overflow: auto;
 		p{
@@ -277,6 +290,7 @@ html.game{
 			left: 0;
 			width: 100%;
 			height: 100%;
+			margin: 30px 0 100px;
 			content: '';
 			z-index: 21;
 			transition: opacity 1s ease-out 0s, height 0s ease-out 0s, width 0s ease-out 0s;
